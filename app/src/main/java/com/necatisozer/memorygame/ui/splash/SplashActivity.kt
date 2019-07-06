@@ -7,6 +7,9 @@ import androidx.appcompat.app.AppCompatActivity
 import com.firebase.ui.auth.AuthUI
 import com.firebase.ui.auth.IdpResponse
 import com.necatisozer.memorygame.R
+import com.necatisozer.memorygame.di.injector
+import com.necatisozer.memorygame.extension.viewModels
+import splitties.arch.lifecycle.observeNotNull
 import splitties.toast.toast
 
 class SplashActivity : AppCompatActivity() {
@@ -14,26 +17,20 @@ class SplashActivity : AppCompatActivity() {
         private const val RC_SIGN_IN = 123
     }
 
+    private val viewModel by viewModels { injector.splashViewModel }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        signIn()
+        observeViewModel()
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
+    private fun observeViewModel() {
+        observeNotNull(viewModel.openMainEvent()) { openMain() }
+        observeNotNull(viewModel.signInEvent()) { signIn() }
+    }
 
-        if (requestCode == RC_SIGN_IN) {
-            val response = IdpResponse.fromResultIntent(data)
-
-            if (resultCode == Activity.RESULT_OK) {
-                // Successfully signed in
-            } else {
-                // Sign in failed. If response is null the user canceled the
-                // sign-in flow using the back button. Otherwise check
-                // response.getError().getErrorCode() and handle the error.
-                response?.error?.localizedMessage?.let { toast(it) }
-            }
-        }
+    private fun openMain() {
+        toast("Main")
     }
 
     private fun signIn() {
@@ -58,5 +55,21 @@ class SplashActivity : AppCompatActivity() {
         )
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
 
+        if (requestCode == RC_SIGN_IN) {
+            val response = IdpResponse.fromResultIntent(data)
+
+            if (resultCode == Activity.RESULT_OK) {
+                // Successfully signed in
+                openMain()
+            } else {
+                // Sign in failed. If response is null the user canceled the
+                // sign-in flow using the back button. Otherwise check
+                // response.getError().getErrorCode() and handle the error.
+                response?.error?.localizedMessage?.let { toast(it) }
+            }
+        }
+    }
 }
