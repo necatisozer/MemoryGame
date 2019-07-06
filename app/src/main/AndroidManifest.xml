@@ -13,7 +13,9 @@
         android:theme="@style/MyTheme.DayNight"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
 
-        <activity android:name=".ui.MainActivity">
+        <activity
+            android:name=".ui.main.SplashActivity"
+            android:theme="@style/MyTheme.DayNight.Main">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

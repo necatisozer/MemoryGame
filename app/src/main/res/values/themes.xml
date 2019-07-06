@@ -19,6 +19,10 @@
     <!--Top level DayNight theme to be used in AndroidManifest.xml-->
     <style name="MyTheme.DayNight" parent="Base.MyTheme" />
 
+    <style name="MyTheme.DayNight.Main" parent="MyTheme.DayNight">
+        <item name="android:windowBackground">@drawable/splash_background</item>
+    </style>
+
     <!--Base custom theme which will be shared between both light and dark theme variants-->
     <style name="Base.MyTheme" parent="Base.MaterialThemeBuilder">
         <!--Material color attributes -->

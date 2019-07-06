@@ -85,7 +85,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-common-ktx:18.0.0'
     implementation 'com.google.firebase:firebase-firestore:20.1.0'
     implementation 'com.google.firebase:firebase-firestore-ktx:20.1.0'
-    implementation 'com.firebaseui:firebase-ui-auth:4.3.1'
+    implementation 'com.firebaseui:firebase-ui-auth:5.0.0'
 
     // Extensions
     implementation "com.louiscad.splitties:splitties-activities:$splitties_version"
