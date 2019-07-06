@@ -4,7 +4,7 @@ import java.text.SimpleDateFormat
 
 buildscript {
 
-    ext.android_navigation_version = '2.0.0'
+    ext.android_navigation_version = '2.1.0-alpha06'
     ext.android_lifecycle_version = '2.2.0-alpha02'
     ext.kotlin_version = '1.3.41'
     ext.kotlin_coroutines_version = '1.3.0-M2'
