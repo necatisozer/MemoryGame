@@ -1,7 +1,8 @@
-package com.necatisozer.memorygame
+package com.necatisozer.memorygame.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.necatisozer.memorygame.R
 
 class MainActivity : AppCompatActivity() {
 
