@@ -77,10 +77,15 @@ dependencies {
 
     // Google
     implementation 'com.google.android.material:material:1.1.0-alpha07'
-    implementation 'com.google.firebase:firebase-firestore:20.1.0'
-    implementation 'com.google.firebase:firebase-firestore-ktx:20.1.0'
     implementation 'com.google.dagger:dagger:2.23.2'
     kapt 'com.google.dagger:dagger-compiler:2.23.2'
+
+    // Firebase
+    implementation 'com.google.firebase:firebase-core:17.0.0'
+    implementation 'com.google.firebase:firebase-common-ktx:18.0.0'
+    implementation 'com.google.firebase:firebase-firestore:20.1.0'
+    implementation 'com.google.firebase:firebase-firestore-ktx:20.1.0'
+    implementation 'com.firebaseui:firebase-ui-auth:4.3.1'
 
     // Extensions
     implementation "com.louiscad.splitties:splitties-activities:$splitties_version"
