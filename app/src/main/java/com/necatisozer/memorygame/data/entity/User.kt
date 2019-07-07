@@ -2,7 +2,8 @@ package com.necatisozer.memorygame.data.entity
 
 data class User(
     val email: String,
-    val username: String,
+    val highestScore: Int,
     val photoUrl: String?,
-    val highestScore: Int
+    val username: String
+
 )

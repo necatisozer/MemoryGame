@@ -4,6 +4,8 @@ import com.google.firebase.firestore.IgnoreExtraProperties
 
 @IgnoreExtraProperties
 data class DbUser(
-    val username: String? = null,
-    val highestScore: Int? = null
+    val email: String? = null,
+    val highestScore: Int? = null,
+    val photoUrl: String? = null,
+    val username: String? = null
 )

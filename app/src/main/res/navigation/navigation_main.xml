@@ -8,5 +8,14 @@
         android:id="@+id/mainFragment"
         android:name="com.necatisozer.memorygame.ui.main.main.MainFragment"
         android:label="MainFragment"
-        tools:layout="@layout/fragment_main" />
+        tools:layout="@layout/fragment_main">
+        <action
+            android:id="@+id/action_mainFragment_to_leaderboardFragment"
+            app:destination="@id/leaderboardFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/leaderboardFragment"
+        android:name="com.necatisozer.memorygame.ui.main.leaderboard.LeaderboardFragment"
+        android:label="@string/leaderboard_title"
+        tools:layout="@layout/fragment_leaderboard" />
 </navigation>

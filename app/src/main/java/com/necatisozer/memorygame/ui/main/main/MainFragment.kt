@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.fragment.findNavController
 import com.necatisozer.memorygame.R
 import com.necatisozer.memorygame.data.entity.User
 import com.necatisozer.memorygame.databinding.FragmentMainBinding
@@ -13,6 +14,7 @@ import com.necatisozer.memorygame.extension.loadUrlAsCircle
 import com.necatisozer.memorygame.extension.viewModels
 import com.necatisozer.memorygame.ui.base.BaseFragment
 import splitties.arch.lifecycle.observeNotNull
+import splitties.views.onClick
 
 class MainFragment : BaseFragment() {
     private lateinit var binding: FragmentMainBinding
@@ -30,7 +32,7 @@ class MainFragment : BaseFragment() {
     }
 
     private fun initViews() {
-
+        binding.layoutMainBody.buttonLeaders.onClick { navigateToLeaderboard() }
     }
 
     private fun observeViewModel() {
@@ -41,5 +43,10 @@ class MainFragment : BaseFragment() {
         user.photoUrl?.let { binding.layoutProfile.imageViewProfilePhoto.loadUrlAsCircle(it) }
         binding.layoutProfile.textViewUsername.text = user.username
         binding.layoutProfile.textViewHighestScore.text = getString(R.string.main_highest_score, user.highestScore)
+    }
+
+    private fun navigateToLeaderboard() {
+        val direction = MainFragmentDirections.actionMainFragmentToLeaderboardFragment()
+        findNavController().navigate(direction)
     }
 }

@@ -5,42 +5,40 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:padding="@dimen/margin_profile_photo_small">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imageViewProfilePhoto"
-            android:layout_width="@dimen/size_profile_photo"
-            android:layout_height="@dimen/size_profile_photo"
-            android:layout_margin="@dimen/margin_profile_photo"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="@dimen/size_profile_photo_small"
+            android:layout_height="@dimen/size_profile_photo_small"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_account_circle_primary_24dp" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/textViewUsername"
-            style="@style/TextAppearance.MyTheme.Headline5"
-            android:layout_width="wrap_content"
+            style="@style/TextAppearance.MyTheme.Body1"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/margin_profile_photo"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageViewProfilePhoto"
+            android:layout_marginStart="@dimen/margin_profile_photo_small"
+            android:layout_marginEnd="@dimen/margin_profile_photo_small"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/textViewHighestScore"
+            app:layout_constraintStart_toEndOf="@+id/imageViewProfilePhoto"
+            app:layout_constraintTop_toTopOf="parent"
             tools:text="username" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/textViewHighestScore"
-            style="@style/TextAppearance.MyTheme.Body1"
+            style="@style/TextAppearance.MyTheme.Headline5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/keyline_2"
-            android:layout_marginBottom="@dimen/keyline_6"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewUsername"
-            tools:text="@string/main_highest_score" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="1000" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
