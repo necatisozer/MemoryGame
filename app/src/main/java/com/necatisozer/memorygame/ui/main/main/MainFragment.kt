@@ -6,8 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import com.necatisozer.memorygame.R
+import com.necatisozer.memorygame.data.entity.User
 import com.necatisozer.memorygame.databinding.FragmentMainBinding
 import com.necatisozer.memorygame.di.injector
+import com.necatisozer.memorygame.extension.loadUrlAsCircle
 import com.necatisozer.memorygame.extension.viewModels
 import com.necatisozer.memorygame.ui.base.BaseFragment
 import splitties.arch.lifecycle.observeNotNull
@@ -32,8 +34,12 @@ class MainFragment : BaseFragment() {
     }
 
     private fun observeViewModel() {
-        viewLifecycleOwner.observeNotNull(viewModel.userLiveData()) {
+        viewLifecycleOwner.observeNotNull(viewModel.userLiveData()) { showUserData(it) }
+    }
 
-        }
+    private fun showUserData(user: User) {
+        user.photoUrl?.let { binding.layoutProfile.imageViewProfilePhoto.loadUrlAsCircle(it) }
+        binding.layoutProfile.textViewUsername.text = user.username
+        binding.layoutProfile.textViewHighestScore.text = getString(R.string.main_highest_score, user.highestScore)
     }
 }

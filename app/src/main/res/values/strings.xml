@@ -24,4 +24,8 @@
         anim id est laborum.
     </string>
 
+    <string name="main_highest_score">Highest Score: %d</string>
+    <string name="main_play">Play</string>
+    <string name="main_leaders">Leaders</string>
+
 </resources>

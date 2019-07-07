@@ -33,6 +33,7 @@ class UserRepository @Inject constructor() {
         User(
             email = currentUser.email!!,
             username = dbUser.username!!,
+            photoUrl = currentUser.photoUrl?.toString(),
             highestScore = dbUser.highestScore ?: 0
         )
     }

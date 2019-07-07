@@ -18,12 +18,22 @@
     <dimen name="keyline_0">2dp</dimen>
     <dimen name="keyline_1">4dp</dimen>
     <dimen name="keyline_2">8dp</dimen>
+    <dimen name="keyline_3">12dp</dimen>
     <dimen name="keyline_4">16dp</dimen>
     <dimen name="keyline_5">24dp</dimen>
+    <dimen name="keyline_6">32dp</dimen>
+    <dimen name="keyline_7">48dp</dimen>
+    <dimen name="keyline_8">64dp</dimen>
+    <dimen name="keyline_9">96dp</dimen>
+    <dimen name="keyline_10">128dp</dimen>
 
     <dimen name="component_label_horizontal_margin">@dimen/keyline_4</dimen>
 
     <dimen name="elevation_default_top_app_bar">4dp</dimen>
+
+    <dimen name="title_margin">@dimen/keyline_4</dimen>
+    <dimen name="profile_photo_size">@dimen/keyline_10</dimen>
+    <dimen name="profile_photo_margin">@dimen/keyline_6</dimen>
 
     <!--Emphasis modifiers for "on" colors-->
     <dimen name="alpha_emphasis_high">@dimen/mtrl_emphasis_high_type</dimen>
