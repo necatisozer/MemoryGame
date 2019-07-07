@@ -3,16 +3,18 @@ package com.necatisozer.memorygame.ui.splash
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
 import com.firebase.ui.auth.AuthUI
 import com.firebase.ui.auth.IdpResponse
 import com.necatisozer.memorygame.R
 import com.necatisozer.memorygame.di.injector
 import com.necatisozer.memorygame.extension.viewModels
-import splitties.arch.lifecycle.observeNotNull
+import com.necatisozer.memorygame.ui.base.BaseActivity
+import com.necatisozer.memorygame.ui.main.MainActivity
+import splitties.activities.start
 import splitties.toast.toast
 
-class SplashActivity : AppCompatActivity() {
+class SplashActivity : BaseActivity() {
     companion object {
         private const val RC_SIGN_IN = 123
     }
@@ -25,12 +27,14 @@ class SplashActivity : AppCompatActivity() {
     }
 
     private fun observeViewModel() {
-        observeNotNull(viewModel.openMainEvent()) { openMain() }
-        observeNotNull(viewModel.signInEvent()) { signIn() }
+        viewModel.openMainEvent().observe(this, Observer { openMain() })
+        viewModel.signInEvent().observe(this, Observer { signIn() })
+        viewModel.failureEvent().observe(this, Observer { showFailure(it) })
     }
 
     private fun openMain() {
-        toast("Main")
+        start<MainActivity>()
+        finish()
     }
 
     private fun signIn() {

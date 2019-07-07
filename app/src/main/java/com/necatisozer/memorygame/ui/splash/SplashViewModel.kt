@@ -9,7 +9,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class SplashViewModel @Inject constructor(
-    userRepository: UserRepository
+    private val userRepository: UserRepository
 ) : BaseViewModel() {
     private val openMainEvent = SingleLiveEvent<Void>()
     fun openMainEvent(): LiveData<Void> = openMainEvent
@@ -19,10 +19,13 @@ class SplashViewModel @Inject constructor(
 
     init {
         viewModelScope.launch {
-            when (userRepository.isLoggedIn()) {
-                true -> openMainEvent.call()
-                false -> signInEvent.call()
-            }
+            runCatching {
+                when (userRepository.isLoggedIn()) {
+                    true -> openMainEvent.call()
+                    false -> signInEvent.call()
+                }
+            }.onFailure { ::handleFailure }
+
         }
     }
 }

@@ -1,6 +1,7 @@
 package com.necatisozer.memorygame.di
 
 import android.content.Context
+import com.necatisozer.memorygame.ui.main.main.MainViewModel
 import com.necatisozer.memorygame.ui.splash.SplashViewModel
 import dagger.BindsInstance
 import dagger.Component
@@ -17,4 +18,5 @@ interface ApplicationComponent {
 
     // View Models
     val splashViewModel: SplashViewModel
+    val mainViewModel: MainViewModel
 }
