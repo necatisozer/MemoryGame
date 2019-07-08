@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.findNavController
+import com.firebase.ui.auth.AuthUI
 import com.necatisozer.memorygame.R
 import com.necatisozer.memorygame.data.entity.User
 import com.necatisozer.memorygame.databinding.FragmentMainBinding
@@ -16,7 +17,9 @@ import com.necatisozer.memorygame.extension.loadUrlAsCircle
 import com.necatisozer.memorygame.extension.viewModels
 import com.necatisozer.memorygame.ui.base.BaseFragment
 import com.necatisozer.memorygame.ui.game.GameActivity
+import com.necatisozer.memorygame.ui.splash.SplashActivity
 import splitties.arch.lifecycle.observeNotNull
+import splitties.fragments.start
 import splitties.views.onClick
 
 
@@ -42,6 +45,7 @@ class MainFragment : BaseFragment() {
     private fun initViews() {
         binding.layoutMainBody.buttonPlay.onClick { navigateToGame() }
         binding.layoutMainBody.buttonLeaders.onClick { navigateToLeaderboard() }
+        binding.layoutMainBody.buttonSignOut.onClick { signOut() }
     }
 
     private fun observeViewModel() {
@@ -62,6 +66,15 @@ class MainFragment : BaseFragment() {
     private fun navigateToLeaderboard() {
         val direction = MainFragmentDirections.actionMainFragmentToLeaderboardFragment()
         findNavController().navigate(direction)
+    }
+
+    private fun signOut() {
+        AuthUI.getInstance().signOut(context!!).addOnCompleteListener { openSplash() }
+    }
+
+    private fun openSplash() {
+        activity?.finish()
+        start<SplashActivity>()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

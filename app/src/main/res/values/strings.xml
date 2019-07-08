@@ -27,6 +27,7 @@
     <string name="main_highest_score">Highest Score: %d</string>
     <string name="main_play">Play</string>
     <string name="main_leaders">Leaderboard</string>
+    <string name="main_sign_out">Sign Out</string>
 
     <string name="leaderboard_title">Leaderboard</string>
 
