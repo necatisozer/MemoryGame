@@ -10,6 +10,7 @@ import com.necatisozer.memorygame.extension.addRipple
 abstract class BaseAdapter<D, H : BaseViewHolder<D, ViewDataBinding>> :
     ListAdapter<D, H>(DiffCallback<D>()) {
     var clickListener: (D) -> Unit = {}
+    var clickListenerIndexed: (Int, D) -> Unit = { _, _ -> }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = onCreateViewHolder(parent)
 
@@ -17,8 +18,11 @@ abstract class BaseAdapter<D, H : BaseViewHolder<D, ViewDataBinding>> :
         val data = currentList[position]
         holder.apply {
             bindData(data)
-            itemView.setOnClickListener { clickListener(data) }
-            itemView.addRipple()
+            itemView.setOnClickListener {
+                clickListener(data)
+                clickListenerIndexed(position, data)
+                itemView.addRipple()
+            }
         }
     }
 

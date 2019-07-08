@@ -1,5 +1,6 @@
 package com.necatisozer.memorygame.extension
 
+import android.net.Uri
 import android.widget.ImageView
 import androidx.annotation.DimenRes
 import androidx.annotation.DrawableRes
@@ -18,6 +19,10 @@ fun ImageView.loadUrl(url: String) {
 
 fun ImageView.loadDrawableRes(@DrawableRes drawableRes: Int) {
     Glide.with(this).load(drawableRes).into(this)
+}
+
+fun ImageView.loadAsset(path: String) {
+    Glide.with(this).load(Uri.parse("file:///android_asset/$path")).into(this)
 }
 
 fun ImageView.loadUrl(url: String, @DimenRes roundingRadius: Int) {

@@ -30,4 +30,10 @@
 
     <string name="leaderboard_title">Leaderboard</string>
 
+    <string name="game_time">Time %02d:%02d</string>
+    <string name="game_score">Score: %d</string>
+    <string name="game_result_title_success">Congratulations!</string>
+    <string name="game_result_title_fail">Game Over!</string>
+    <string name="game_result_message">Score: %d\nHighest Score: %d</string>
+
 </resources>

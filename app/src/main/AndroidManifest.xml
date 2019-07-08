@@ -23,6 +23,7 @@
         </activity>
 
         <activity android:name=".ui.main.MainActivity" />
+        <activity android:name=".ui.game.GameActivity" />
 
         <meta-data
             android:name="preloaded_fonts"
