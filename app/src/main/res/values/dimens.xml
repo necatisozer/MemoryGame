@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+~ Copyright (C) 2019 The Android Open Source Project
+~
+~ Licensed under the Apache License, Version 2.0 (the "License");
+~ you may not use this file except in compliance with the License.
+~ You may obtain a copy of the License at
+~
+~      http://www.apache.org/licenses/LICENSE-2.0
+~
+~ Unless required by applicable law or agreed to in writing, software
+~ distributed under the License is distributed on an "AS IS" BASIS,
+~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+~ See the License for the specific language governing permissions and
+~ limitations under the License.
+-->
+
+<resources>
+    <dimen name="keyline_0">2dp</dimen>
+    <dimen name="keyline_1">4dp</dimen>
+    <dimen name="keyline_2">8dp</dimen>
+    <dimen name="keyline_3">12dp</dimen>
+    <dimen name="keyline_4">16dp</dimen>
+    <dimen name="keyline_5">24dp</dimen>
+    <dimen name="keyline_6">32dp</dimen>
+    <dimen name="keyline_7">48dp</dimen>
+    <dimen name="keyline_8">64dp</dimen>
+    <dimen name="keyline_9">96dp</dimen>
+    <dimen name="keyline_10">128dp</dimen>
+
+    <dimen name="component_label_horizontal_margin">@dimen/keyline_4</dimen>
+
+    <dimen name="elevation_default_top_app_bar">4dp</dimen>
+
+    <dimen name="margin_title">@dimen/keyline_4</dimen>
+    <dimen name="size_profile_photo">@dimen/keyline_10</dimen>
+    <dimen name="margin_profile_photo">@dimen/keyline_6</dimen>
+    <dimen name="size_profile_photo_small">@dimen/keyline_7</dimen>
+    <dimen name="margin_profile_photo_small">@dimen/keyline_3</dimen>
+
+    <!--Emphasis modifiers for "on" colors-->
+    <dimen name="alpha_emphasis_high">@dimen/mtrl_emphasis_high_type</dimen>
+    <dimen name="alpha_emphasis_medium">@dimen/mtrl_emphasis_medium</dimen>
+    <dimen name="alpha_emphasis_disabled">@dimen/mtrl_emphasis_disabled</dimen>
+</resources>

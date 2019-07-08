@@ -1,3 +1,42 @@
+<!--
+~ Copyright (C) 2019 The Android Open Source Project
+~
+~ Licensed under the Apache License, Version 2.0 (the "License");
+~ you may not use this file except in compliance with the License.
+~ You may obtain a copy of the License at
+~
+~      http://www.apache.org/licenses/LICENSE-2.0
+~
+~ Unless required by applicable law or agreed to in writing, software
+~ distributed under the License is distributed on an "AS IS" BASIS,
+~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+~ See the License for the specific language governing permissions and
+~ limitations under the License.
+-->
+
 <resources>
     <string name="app_name">Memory Game</string>
+
+    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+        ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+        aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+        fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+        anim id est laborum.
+    </string>
+
+    <string name="main_highest_score">Highest Score: %d</string>
+    <string name="main_play">Play</string>
+    <string name="main_leaders">Leaderboard</string>
+    <string name="main_sign_out">Sign Out</string>
+
+    <string name="dialog_title_username">Username</string>
+
+    <string name="leaderboard_title">Leaderboard</string>
+
+    <string name="game_time">Time %02d:%02d</string>
+    <string name="game_score">Score: %d</string>
+    <string name="game_result_title_success">Congratulations!</string>
+    <string name="game_result_title_fail">Game Over!</string>
+    <string name="game_result_message">Score: %d\nHighest Score: %d</string>
+
 </resources>

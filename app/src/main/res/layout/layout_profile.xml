@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imageViewProfilePhoto"
+            android:layout_width="@dimen/size_profile_photo"
+            android:layout_height="@dimen/size_profile_photo"
+            android:layout_margin="@dimen/margin_profile_photo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_account_circle_primary_24dp" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textViewUsername"
+            style="@style/TextAppearance.MyTheme.Headline5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_profile_photo"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageViewProfilePhoto"
+            tools:text="username" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/button_username_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/keyline_2"
+            android:background="@null"
+            app:layout_constraintBottom_toBottomOf="@+id/textViewUsername"
+            app:layout_constraintStart_toEndOf="@+id/textViewUsername"
+            app:layout_constraintTop_toTopOf="@+id/textViewUsername"
+            app:srcCompat="@drawable/ic_edit_on_surface_24dp" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textViewHighestScore"
+            style="@style/TextAppearance.MyTheme.Body1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/keyline_2"
+            android:layout_marginBottom="@dimen/keyline_6"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewUsername"
+            tools:text="@string/main_highest_score" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
