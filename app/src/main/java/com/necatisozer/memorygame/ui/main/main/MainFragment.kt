@@ -8,6 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.findNavController
+import com.afollestad.materialdialogs.MaterialDialog
+import com.afollestad.materialdialogs.input.input
+import com.afollestad.materialdialogs.lifecycle.lifecycleOwner
 import com.firebase.ui.auth.AuthUI
 import com.necatisozer.memorygame.R
 import com.necatisozer.memorygame.data.entity.User
@@ -43,6 +46,7 @@ class MainFragment : BaseFragment() {
     }
 
     private fun initViews() {
+        binding.layoutProfile.buttonUsernameEdit.onClick { showUsernameEditDialog() }
         binding.layoutMainBody.buttonPlay.onClick { navigateToGame() }
         binding.layoutMainBody.buttonLeaders.onClick { navigateToLeaderboard() }
         binding.layoutMainBody.buttonSignOut.onClick { signOut() }
@@ -57,6 +61,18 @@ class MainFragment : BaseFragment() {
         binding.layoutProfile.textViewUsername.text = user.username
         binding.layoutProfile.textViewHighestScore.text =
             getString(R.string.main_highest_score, user.highestScore)
+    }
+
+    private fun showUsernameEditDialog() {
+        MaterialDialog(context!!).show {
+            title(R.string.dialog_title_username)
+            input(prefill = binding.layoutProfile.textViewUsername.text) { dialog, text ->
+                viewModel.onUpdateUserName(text.toString())
+                binding.layoutProfile.textViewUsername.text = text
+            }
+            positiveButton(android.R.string.ok)
+            lifecycleOwner(this@MainFragment)
+        }
     }
 
     private fun navigateToGame() {

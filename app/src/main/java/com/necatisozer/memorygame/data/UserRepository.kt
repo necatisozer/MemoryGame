@@ -21,6 +21,7 @@ import javax.inject.Singleton
 class UserRepository @Inject constructor() {
     companion object {
         const val USERS_PATH = "users"
+        const val USERNAME_FIELD = "username"
         const val HIGHEST_SCORE_FIELD = "highestScore"
         const val SCORES_FIELD = "scores"
         const val LEADERBOARD_USER_COUNT = 10
@@ -73,7 +74,7 @@ class UserRepository @Inject constructor() {
         leaderboard.map { it.asEntity }
     }
 
-    suspend fun addNewScore(score: Int): Unit = withContext(Dispatchers.IO) {
+    suspend fun addNewScore(score: Int) = withContext(Dispatchers.IO) {
         val currentUser = auth.currentUser ?: error("User should be logged in")
         val userReference = db.collection(USERS_PATH).document(currentUser.uid)
         val highestScore = getUser().highestScore
@@ -88,6 +89,14 @@ class UserRepository @Inject constructor() {
         if (score > highestScore) {
             userReference.update(HIGHEST_SCORE_FIELD, score).await()
         }
+    }
+
+    suspend fun updateUsername(username: String) = withContext(Dispatchers.IO) {
+        val currentUser = auth.currentUser ?: error("User should be logged in")
+        val userReference = db.collection(USERS_PATH).document(currentUser.uid)
+
+        userReference.update(USERNAME_FIELD, username).await()
+        return@withContext
     }
 
     private val DbUser.asEntity

@@ -29,6 +29,8 @@
     <string name="main_leaders">Leaderboard</string>
     <string name="main_sign_out">Sign Out</string>
 
+    <string name="dialog_title_username">Username</string>
+
     <string name="leaderboard_title">Leaderboard</string>
 
     <string name="game_time">Time %02d:%02d</string>

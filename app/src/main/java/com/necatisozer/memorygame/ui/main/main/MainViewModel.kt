@@ -23,4 +23,10 @@ class MainViewModel @Inject constructor(
             }.onFailure { ::handleFailure }
         }
     }
+
+    fun onUpdateUserName(username: String) {
+        viewModelScope.launch {
+            userRepository.updateUsername(username)
+        }
+    }
 }

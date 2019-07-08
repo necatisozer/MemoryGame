@@ -6,6 +6,7 @@ import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import com.afollestad.materialdialogs.MaterialDialog
+import com.afollestad.materialdialogs.lifecycle.lifecycleOwner
 import com.necatisozer.memorygame.R
 import com.necatisozer.memorygame.databinding.ActivityGameBinding
 import com.necatisozer.memorygame.di.injector
@@ -49,6 +50,7 @@ class GameActivity : BaseActivity() {
             message(text = message)
             positiveButton(android.R.string.ok) { returnHighestScore(gameResult.highestScore) }
             cancelable(false)
+            lifecycleOwner(this@GameActivity)
         }
     }
 
